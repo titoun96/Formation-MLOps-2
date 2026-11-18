@@ -27,4 +27,6 @@ jobs:
       - name: Run tests
         continue-on-error: true # Task is expected to fail (there is a test that trainee will fix"
         run: uv run pytest tests/test_architecture
+      - name: Run test coverage
+        run: uv run pytest --cov=formation_mlops_2/ tests/test_unit/ -vv -p no:warnings
 
