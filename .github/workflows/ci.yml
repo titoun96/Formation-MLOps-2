@@ -29,4 +29,6 @@ jobs:
         run: uv run pytest tests/test_architecture
       - name: Run test coverage
         run: uv run pytest --cov=formation_mlops_2/ tests/test_unit/ -vv -p no:warnings
+      - name: Run test integration
+        run: uv run pytest tests/test_architecture/test_to_csv_called_with_index_false.py
 
