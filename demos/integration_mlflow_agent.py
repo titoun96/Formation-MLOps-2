@@ -4,6 +4,10 @@ from pathlib import Path
 
 import boto3
 from dotenv import load_dotenv
+import mlflow
+
+mlflow.set_experiment("agent-demo")
+mlflow.bedrock.autolog()
 
 load_dotenv(Path(__file__).parent / ".env")
 
@@ -44,7 +48,7 @@ TOOL_CONFIG = {
     ]
 }
 
-
+@mlflow.trace
 def run_agent(question: str) -> str:
     messages = [{"role": "user", "content": [{"text": question}]}]
 
